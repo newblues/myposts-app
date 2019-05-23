@@ -86,4 +86,4 @@ body: string
 **Bonus points**
 
 - Dockerize it
-- Deploy it to Kubesail
+- Deploy it to Kubesail or another Kubernetes platform
