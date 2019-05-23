@@ -4,6 +4,8 @@
 
 If you are a front-end developer, please see the section Front-End, if you are a Back-End developer, please see the section Back-End and if you are a fullstack developer, start with the back-end test and then use it for your front-end test.
 
+**This is deliberately written in English because it's important to have a fairly good level, however, if there is ANYTHING that you do not understand, do not hesitate to ask, we are not trying to catch you out. Finally, Good Luck!**
+
 # Front-End
 
 ## Requirements
@@ -20,7 +22,7 @@ If you are a front-end developer, please see the section Front-End, if you are a
 
 ### The problem
 
-You'll need to access a RESTful API, which is hosted here:
+You'll need to access a RESTful API, which is hosted here (unless you've built the service as part of the back-end test)
 ```
 https://jsonplaceholder.typicode.com/posts
 ```
@@ -62,10 +64,15 @@ https://jsonplaceholder.typicode.com/posts
 - It should provide the following routes:
 
 GET	     /posts
+
 GET	     /posts/:id
+
 GET	     /posts?userId=:id
+
 POST	   /posts
+
 PUT	     /posts/1
+
 DELETE	 /posts/1
 
 - It should be backed with a database for persistence, Postgres or MongoDB
@@ -80,5 +87,3 @@ body: string
 
 - Dockerize it
 - Deploy it to Kubesail
-
-**This is deliberately written in English because it's important to have a fairly good level, however, if there is ANYTHING that you do not understand, do not hesitate to ask, we are not trying to catch you out. Finally, Good Luck!**
