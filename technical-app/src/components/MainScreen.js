@@ -16,7 +16,8 @@ class MainScreen extends Component {
   constructor() {
     super();
     this.state = {
-      isLoaded: false
+      isLoaded: false,
+      value: ''
     };
   }
 
@@ -32,9 +33,19 @@ class MainScreen extends Component {
       .catch(err => console.log(err));
   };
 
+  handleChange = event => {
+    this.setState({ value: event.target.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.setState({ value: '' });
+    this.props.addMessages(this.state.value);
+  };
+
   render() {
     const { messages } = this.props;
-    const { isLoaded } = this.state;
+    const { isLoaded, value } = this.state;
 
     const messagesList = messages.map((message, i) => {
       return (
@@ -50,6 +61,18 @@ class MainScreen extends Component {
 
     return (
       <div style={styles.container}>
+        <form onSubmit={this.handleSubmit}>
+          {' '}
+          <label>
+            New Message:
+            <input
+              type='text'
+              value={value}
+              onChange={this.handleChange}
+            />{' '}
+          </label>
+          <input type='submit' value='Submit' />
+        </form>
         {isLoaded ? <div>{messagesList}</div> : <p>En chargement</p>}
       </div>
     );
@@ -61,6 +84,12 @@ function mapDispatchToProps(dispatch) {
     handleMessages: function(messages) {
       dispatch({
         type: 'GET_MESSAGES',
+        messages
+      });
+    },
+    addMessages: function(messages) {
+      dispatch({
+        type: 'ADD_MESSAGES',
         messages
       });
     }
