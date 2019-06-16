@@ -1,4 +1,13 @@
 import React, { Component } from 'react';
+import {
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormFeedback,
+  FormText
+} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import { connect } from 'react-redux';
 
@@ -6,8 +15,8 @@ import Message from './Messages';
 
 const styles = {
   container: {
-    flex: 1,
-    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center'
   }
 };
@@ -64,11 +73,11 @@ class MainScreen extends Component {
         <form onSubmit={this.handleSubmit}>
           {' '}
           <label>
-            New Message:
             <input
               type='text'
               value={value}
               onChange={this.handleChange}
+              placeholder='New message...'
             />{' '}
           </label>
           <input type='submit' value='Submit' />
