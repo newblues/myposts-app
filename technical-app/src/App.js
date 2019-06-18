@@ -3,16 +3,20 @@ import './App.css';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 
-import MainScreen from './components/MainScreen';
 import messages from './reducers/messages.reducer';
+import filter from './reducers/filter.reducer';
 
-const store = createStore(combineReducers({ messages }));
+import HomePage from './components/HomePage';
+import Header from './components/Header';
+
+const store = createStore(combineReducers({ messages, filter }));
 
 function App() {
   return (
     <Provider store={store}>
       <div className='App'>
-        <MainScreen />
+        <Header />
+        <HomePage />
       </div>
     </Provider>
   );
